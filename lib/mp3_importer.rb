@@ -13,13 +13,12 @@ class MP3Importer
     files = Dir["#{@path}/*.mp3"]
     # binding.pry
     files = files.collect { |file| File.basename(file) }
+    # binding.pry
     # files = files.collect { |file| file.chomp(".mp3") }
   end
 
   def import
-    # binding.pry
-
-    files.each do |file|
+    self.files.each do |file|
       Song.new_by_filename(file)
     end
   end
