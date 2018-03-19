@@ -1,7 +1,7 @@
 require 'pry'
 
 class Artist
-  attr_accessor :name
+  attr_reader :name
 
   @@all = []
 
@@ -35,7 +35,7 @@ class Artist
   end
 
   def self.find_or_create_by_name(artist_name)
-    if !@@all.any?{|instance| instance.name === artist_name}
+    if !@@all.any?{|instance| instance.name == artist_name}
       artist = Artist.new(artist_name)
     end
   end
